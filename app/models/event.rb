@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   def as_json(options = {})
     {
       :id => self.id,
-      :owner => current_user 
+      :owner => current_user,
       :title => self.title,
       :description => self.description || "",
       :start => starts_at.rfc822,
