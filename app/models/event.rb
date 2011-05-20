@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
-    
-  scope :owner, lambda {where(signed_in?)}
+  belongs_to :user
+
+
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
   
@@ -9,6 +10,7 @@ class Event < ActiveRecord::Base
   def as_json(options = {})
     {
       :id => self.id,
+      :owner => current_user 
       :title => self.title,
       :description => self.description || "",
       :start => starts_at.rfc822,
