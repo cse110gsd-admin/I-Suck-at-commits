@@ -10,7 +10,6 @@ class Event < ActiveRecord::Base
     {
       :id => self.id,
       :title => self.title,
-
       :description => self.description || "",
       :start => starts_at.rfc822,
       :end => ends_at.rfc822,
