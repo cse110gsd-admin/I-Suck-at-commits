@@ -3,7 +3,7 @@
 # this demo serves up.
 class CalendarController < ApplicationController
   def index
-  	 deny_access unless User.signed_in?
+  	 deny_access unless User.authenticate
   end
 
 end
