@@ -1,7 +1,6 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
-      t.string :owner
       t.string :title
       t.datetime :starts_at
       t.datetime :ends_at

@@ -1,8 +1,6 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
-  before_filter :signed_in?
-
   def index   
     # full_calendar will hit the index method with query parameters
     # 'start' and 'end' in order to filter the results for the
@@ -24,8 +22,6 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-
-    ## Find by current user, not bu :Td
 
     respond_to do |format|
       format.html # show.html.erb
@@ -99,7 +95,4 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-
-
 end
