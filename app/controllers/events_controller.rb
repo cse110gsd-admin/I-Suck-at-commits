@@ -1,8 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
-  before_filter :authenticate
-  before_filter :correct_user
+  before_filter :signed_in?
 
   def index   
     # full_calendar will hit the index method with query parameters
@@ -100,4 +99,7 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+
 end
