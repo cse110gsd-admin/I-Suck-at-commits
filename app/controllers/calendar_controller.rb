@@ -3,8 +3,7 @@
 # this demo serves up.
 class CalendarController < ApplicationController
   def index
-  	 deny_access unless signed_in?
-
+  	 redirect_to(root_path) unless signed_in?
   end
 
 end
